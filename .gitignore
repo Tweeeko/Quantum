@@ -1,0 +1,8 @@
+node_modules/
+web/dist/
+tests/e2e/out/
+.env
+.env.*
+*.log
+.DS_Store
+supabase/.temp/
