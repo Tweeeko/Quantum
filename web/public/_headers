@@ -1,0 +1,7 @@
+# Used by Cloudflare Pages (ignored by GitHub Pages, where main.ts refuses to run inside a frame).
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://tbnhiznxuldicfspcroc.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
