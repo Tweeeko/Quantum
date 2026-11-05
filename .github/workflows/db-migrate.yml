@@ -1,0 +1,30 @@
+# Applies supabase/migrations to the production project. Manual trigger only.
+# Requires repository secrets (Settings > Secrets and variables > Actions):
+#   SUPABASE_ACCESS_TOKEN  - personal access token from supabase.com/dashboard/account/tokens
+#   SUPABASE_DB_PASSWORD   - the project's database password
+name: Database migrate (production)
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "migrate" to apply pending migrations to production'
+        required: true
+permissions:
+  contents: read
+jobs:
+  migrate:
+    if: ${{ github.event.inputs.confirm == 'migrate' }}
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      PROJECT_REF: tbnhiznxuldicfspcroc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with: { version: latest }
+      - run: supabase link --project-ref "$PROJECT_REF" -p "$SUPABASE_DB_PASSWORD"
+      - name: Show pending migrations
+        run: supabase migration list -p "$SUPABASE_DB_PASSWORD"
+      - name: Apply
+        run: supabase db push -p "$SUPABASE_DB_PASSWORD"
