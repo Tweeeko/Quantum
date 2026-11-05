@@ -4,7 +4,7 @@ Autonomous business portfolio operating system. One owner, many businesses, each
 
 Created by **Leeko**.
 
-> **Status (5 Nov 2026):** Phase 0 (audit) and Phase 1 (core foundation) are complete in the repo. The database schema, isolation and scheduler are tested locally (73 database assertions). Production Supabase is **partially migrated**: see [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md). Nothing is deployed to the web yet.
+> **Status (5 Nov 2026):** Phase 0 (audit) and Phase 1 (core foundation) are done. The production database is fully deployed and its scheduler is verified running. The web command centre deploys when PR #1 is merged with GitHub Pages enabled. See [docs/IMPLEMENTATION_STATUS.md](docs/IMPLEMENTATION_STATUS.md).
 
 ## What is here
 

@@ -15,3 +15,4 @@ revoke execute on function public.portfolio_overview() from public, anon;
 revoke execute on function public.execute_system_task(public.tasks) from public, anon, authenticated;
 revoke execute on function public.run_system_tasks(integer) from public, anon, authenticated;
 revoke execute on function public.schedule_daily_review() from public, anon, authenticated;
+revoke execute on function public.expire_approvals() from public, anon, authenticated;

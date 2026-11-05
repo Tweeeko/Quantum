@@ -5,7 +5,7 @@ Each phase must produce working, tested functionality. Status lives in [IMPLEMEN
 | Phase | Scope | State |
 |---|---|---|
 | 0 | Audit repo and integrations | **Done** |
-| 1 | Core foundation: schema, auth bootstrap, RLS isolation, secure config, CI, deploy pipeline | **Implemented & tested locally**; production DB partially applied |
+| 1 | Core foundation: schema, auth bootstrap, RLS isolation, secure config, CI, deploy pipeline | **Deployed** (database); web app awaiting Pages |
 | 2 | Command centre: overview, portfolio, business detail, platform status | **Implemented** (UI tested on mocked API); needs live DB |
 | 3 | Business Factory: templates, dynamic creation, modules, objectives, knowledge | Templates, creation and modules done; objectives/knowledge UI pending |
 | 4 | AI workforce: registry, roles, permissions, execution records, management UI | Registry, derived status and UI done; per-agent permission scopes pending |
@@ -18,10 +18,10 @@ Each phase must produce working, tested functionality. Status lives in [IMPLEMEN
 
 ## Next highest-priority tasks
 
-1. **Finish applying production migrations** (rpc_and_queue → harden_privileges). Blocked on an interactive confirmation; see the status doc.
-2. Owner registers, then sign-ups are disabled; deploy the command centre to Pages.
+1. Owner enables GitHub Pages (Actions source) and merges PR #1 → command centre live.
+2. Owner signs up with the configured email; sign-ups then disabled.
 3. Stripe webhook ingester (Edge Function, signature-verified, idempotent) → `orders` + `ledger_entries`.
-4. Choose an inference provider (owner decision, cost) → Phase 5 worker.
+4. Owner adds Anthropic credits and API key secret → Phase 5 AI worker.
 5. Create PocketOS in Quantum from verified information.
 
 ## Known operational risk
